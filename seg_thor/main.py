@@ -219,16 +219,15 @@ def main(args):
         if epoch < args.untest_epoch:
             continue
         break_flag += 1
-        eval_dice, eval_precision = evaluation(args, net, loss, epoch, save_dir, test_files, saved_thresholds)
+        eval_dice, eval_precision = evaluation(args, net, loss, epoch, save_dir, test_files, selected_thresholds)
         if max_precision <= eval_precision:
-            
+            selected_thresholds = adaptive_thresholds
             max_precision = eval_precision
             logging.info(
                 '************************ dynamic threshold saved successful ************************** !'
             )
         if eval_dice >= high_dice:
             high_dice = eval_dice
-            selected_thresholds = adaptive_thresholds
             break_flag = 0
             if len(args.gpu.split(',')) > 1 or args.gpu == 'all':
                 state_dict = net.module.state_dict()
@@ -246,7 +245,7 @@ def main(args):
             )
         if break_flag > args.patient:
             break
-    np.save(args.save_dir, np.array(adaptive_thresholds))
+    #np.save(args.save_dir, np.array(adaptive_thresholds)) #save for plot
 
 
 def train(data_loader, net, loss, epoch, optimizer, get_lr, save_dir):
