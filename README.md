@@ -14,8 +14,7 @@ Python 3, pytorch 1.1.0
 ### Prepare SegTHOR dataset
 > reading preprocessing.ipynb in details
 
-the source data download from https://ent.normandie-univ.fr/filex/get?k=oZgYIeT5lnbxhtHZ2u8 \
-or  download from my Baidu Netdisk https://pan.baidu.com/s/1dQHYKIkUd5qCXIvdxSijNg; password: i41q \
+the source data download from https://competitions.codalab.org/competitions/21145 \
 The data path organized like: \
 ../data/data_source/Patient_01/GT.nii \
 ../data/data_source/Patient_01/Patient_01.nii \
