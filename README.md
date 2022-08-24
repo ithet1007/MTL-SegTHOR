@@ -1,11 +1,10 @@
 # MTL-SegTHOR
-Dependent Multi-Task Learning for the Segmentation of Thoracic Organs at Risk in CT Images
-
+Multi-Task Learning for the Segmentation of Organs at Risk with Label Dependence
 author: Tao He
 
 Institution: Sichuan University
 
-email: taohe@stu.scu.edu.cn
+email: tao_he@scu.edu.cn
 
 Tookit need 
 Python 3, pytorch 1.1.0
@@ -14,10 +13,7 @@ Python 3, pytorch 1.1.0
 ### Prepare SegTHOR dataset
 > reading preprocessing.ipynb in details
 
-the source data download from https://competitions.codalab.org/competitions/21145 \
-The data path organized like: \
-../data/data_source/Patient_01/GT.nii \
-../data/data_source/Patient_01/Patient_01.nii \
+the source data can be downloaded from the challenging official website.
 Then, using preprocessing.ipynb to process the SegTHOR dataset for 4-fold cross-validation
 
 
@@ -36,5 +32,15 @@ python3 main.py -b 16 --gpu 0,1,2,3 --model_name ResUNet101 --save_dir SavePath/
 ### Network testing
 > See prediction.ipynb in details
  
- 
-**Please don't hesitate to contact me if you have any question about the data, method, or code !**
+## Citation
+```
+@article{HE2020101666,
+title = {Multi-task learning for the segmentation of organs at risk with label dependence},
+journal = {Medical Image Analysis},
+volume = {61},
+pages = {101666},
+year = {2020},
+author = {Tao He and Junjie Hu and Ying Song and Jixiang Guo and Zhang Yi},
+}
+
+```
